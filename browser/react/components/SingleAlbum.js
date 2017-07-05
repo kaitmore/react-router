@@ -18,10 +18,6 @@ export default class SingleAlbum extends Component {
       }));
   }
 
-  deselectAlbum() {
-    this.setState({ selectedAlbum: {} });
-  }
-
   render() {
     const album = this.state.selectedAlbum;
 

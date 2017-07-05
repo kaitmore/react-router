@@ -7,27 +7,13 @@ import {
 } from 'react-router-dom';
 
 export default class AllAlbums extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      albums: []
-    }
-  }
-  componentDidMount() {
-    axios.get('/api/albums/')
-      .then(res => res.data)
-      .then(albums => {
-        this.setState({ albums })
-      });
-  }
   render() {
-    const albums = this.state.albums;
-    const selectAlbum = this.props.selectAlbum;
+    const albums = this.props.albums;
 
     return (
       <div>
         {console.log(this.props)}
-        <h3>Albums</h3>
+        <h4>Albums</h4>
         <div className="row">
           {
             albums.map(album => (
