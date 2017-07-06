@@ -40,13 +40,14 @@ export default class SingleArtist extends Component {
         return (
            
             <div>
+            {console.log(this.props.match)}
                 <h3>{artist.name}</h3>
                 <ul className="nav nav-tabs">
-                    <li><Link to={`${artist.id}/albums`}>ALBUMS</Link></li>
-                    <li><Link to={`${artist.id}/songs`}>SONGS</Link></li>
+                    <li><Link to={`${this.props.match.url}/albums`}>ALBUMS</Link></li>
+                    <li><Link to={`${this.props.match.url}/songs`}>SONGS</Link></li>
                 </ul>
-                    <Route path = "/:artistId/albums" render={() => <AllAlbums albums = {artistAlbums}/>} />
-                    <Route path = "/:artistId/songs" render={() => <Songs songs={artistSongs} />}  />
+                    <Route exact path = "/artists/:artistId/albums" render={() => <AllAlbums albums = {artistAlbums}/>} />
+                    <Route exact path = "/artists/:artistId/songs" render={() => <Songs songs={artistSongs} />}  />
             </div>
         );
 

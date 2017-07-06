@@ -13400,7 +13400,6 @@ var SingleAlbum = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'album' },
-        console.log(this.props.match.params),
         _react2.default.createElement(
           'div',
           null,
@@ -13504,6 +13503,7 @@ var SingleArtist = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                console.log(this.props.match),
                 _react2.default.createElement(
                     'h3',
                     null,
@@ -13517,7 +13517,7 @@ var SingleArtist = function (_Component) {
                         null,
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { to: artist.id + '/albums' },
+                            { to: this.props.match.url + '/albums' },
                             'ALBUMS'
                         )
                     ),
@@ -13526,15 +13526,15 @@ var SingleArtist = function (_Component) {
                         null,
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { to: artist.id + '/songs' },
+                            { to: this.props.match.url + '/songs' },
                             'SONGS'
                         )
                     )
                 ),
-                _react2.default.createElement(_reactRouterDom.Route, { path: '/:artistId/albums', render: function render() {
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/artists/:artistId/albums', render: function render() {
                         return _react2.default.createElement(_AllAlbums2.default, { albums: artistAlbums });
                     } }),
-                _react2.default.createElement(_reactRouterDom.Route, { path: '/:artistId/songs', render: function render() {
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/artists/:artistId/songs', render: function render() {
                         return _react2.default.createElement(_Songs2.default, { songs: artistSongs });
                     } })
             );

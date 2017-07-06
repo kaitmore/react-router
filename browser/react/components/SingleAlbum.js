@@ -23,7 +23,6 @@ export default class SingleAlbum extends Component {
 
     return (
       <div className="album">
-        {console.log(this.props.match.params)}
         <div>
           <h3>{album.name}</h3>
           <img src={album.imageUrl} className="img-thumbnail" />
